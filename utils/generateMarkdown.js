@@ -1,44 +1,53 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   switch (license) {
     case 'MIT':
-      return `![License: ${license}](https://img.shields.io/badge/License-MIT-yellow.svg)`;
+      return '![License: ${license}](https://img.shields.io/badge/License-MIT-yellow.svg)';
     case 'GNU GPL v3':
-      return `![License: ${license}](https://img.shields.io/badge/License-GPLv3-blue.svg)`;
+      return '![License: ${license}](https://img.shields.io/badge/License-GPLv3-blue.svg)';
     case 'BSD 3-Clause': 
       return '![License: ${license}](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)';
     case 'Apache 2.0':
-      return `![License: ${license}](https://img.shields.io/badge/License-Apache_2.0-blue.svg)`;
+      return '![License: ${license}](https://img.shields.io/badge/License-Apache_2.0-blue.svg)';
+      case 'N/A':
+        return '';
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+//function that returns the license link
 function renderLicenseLink(license) {
   switch (license) {
     case 'MIT':
       return '(https://opensource.org/licenses/MIT)';
     case 'GNU GPL v3':
-      return `(https://www.gnu.org/licenses/gpl-3.0`;
+      return '(https://www.gnu.org/licenses/gpl-3.0)';
     case 'BSD 3-Clause': 
       return '(https://opensource.org/licenses/BSD-3-Clause)';
     case 'Apache 2.0':
-      return `(https://opensource.org/licenses/Apache-2.0`;
+      return '(https://opensource.org/licenses/Apache-2.0)';
+    case 'N/A':
+      return '';
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+//function that returns the license section of README
 function renderLicenseSection(license) {
-  if (license !== '') {
-    return '## License\n\nThis project is licensed under the ${license} license.';
-  } else {
-    return '';
+  switch (license) {
+    case 'MIT':
+      return 'This project is licensed under the MIT license.';
+    case 'GNU GPL v3':
+      return 'This project is licensed under the GNU GPL v3 license.';
+    case 'BSD 3-Clause':
+      return 'This project is licensed under the BSD 3-Clause license.';
+    case 'Apache 2.0':
+      return 'This project is licensed under the Apache 2.0 license.';
+    case 'N/A':
+      return '';
   }
 }
 
-// TODO: Create a function to generate markdown for README
+
+// function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
@@ -78,7 +87,7 @@ function generateMarkdown(data) {
   You can send me any questions at ${data.email}
   You can also visit my GitHub at ${data.github}
 
-  ${renderLicenseSection(data.license)} <br>
+  ${renderLicenseSection(data.license)}
   ${renderLicenseLink(data.license)}
 `;
 }
