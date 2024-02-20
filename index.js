@@ -32,7 +32,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'DOES YOUR PROJECT ',
+        message: 'Does your project have any additional features?',
         name: 'features',
     },
     {
@@ -75,7 +75,7 @@ function writeToFile(response) {
         if (err) {
             console.error('Error creating file: ', err);
         } else {
-            console.log('Read me file created succcessfully');
+            console.log('Read me file created successfully');
         }
     })
 }
